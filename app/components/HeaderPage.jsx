@@ -1,14 +1,17 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
+import React, { useState } from 'react';
 import { BsLightbulbFill } from 'react-icons/bs';
 import { FiMenu } from 'react-icons/fi';
 import { navbar } from './navbar';
 import clsx from 'clsx';
+import FormSearch from './FormSearch';
+import MenuModal from './modal/MenuModal';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const HeaderPage = () => {
+  const [isOpenMenuModal, setIsOpenMenuModal] = useState(true);
   return (
     <header className=' h-14 md:h-[90px] '>
       {/* logo */}
@@ -20,17 +23,9 @@ const HeaderPage = () => {
             width={150}
             height={30}
           />
-          <form className='hidden md:block h-8 md:w-80 w-[485px] relative rounded-lg overflow-hidden'>
-            <input
-              className='h-full w-full px-2'
-              type='search'
-              placeholder='Tìm truyện...'
-            />
-            <AiOutlineSearch
-              size={24}
-              className='absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer'
-            />
-          </form>
+          <div className='hidden md:block md:w-80  lg:w-96 w-[485px] '>
+            <FormSearch />
+          </div>
           <BsLightbulbFill size={24} color='#ff9601' />
           <ul className='hidden md:flex gap-1 text-white'>
             <li>
@@ -41,7 +36,19 @@ const HeaderPage = () => {
             </li>
           </ul>
           <button className='bg-[#d0b32e] rounded-sm md:hidden'>
-            <FiMenu size={28} color='white' />
+            {isOpenMenuModal ? (
+              <AiOutlineClose
+                size={28}
+                color='white'
+                onClick={() => setIsOpenMenuModal(false)}
+              />
+            ) : (
+              <FiMenu
+                size={28}
+                color='white'
+                onClick={() => setIsOpenMenuModal(true)}
+              />
+            )}
           </button>
         </div>
       </div>
@@ -65,6 +72,7 @@ const HeaderPage = () => {
             ))}
         </ul>
       </nav>
+      <MenuModal isOpen={isOpenMenuModal} />
     </header>
   );
 };
