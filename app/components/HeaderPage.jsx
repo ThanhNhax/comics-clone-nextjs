@@ -11,7 +11,7 @@ import MenuModal from './modal/MenuModal';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const HeaderPage = () => {
-  const [isOpenMenuModal, setIsOpenMenuModal] = useState(true);
+  const [isOpenMenuModal, setIsOpenMenuModal] = useState(false);
   return (
     <header className=' h-14 md:h-[90px] '>
       {/* logo */}

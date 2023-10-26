@@ -21,5 +21,6 @@ module.exports = {
       'color-title': '#2980b9',
     },
   },
-  plugins: [],
+
+  plugins: [require('daisyui')],
 };
