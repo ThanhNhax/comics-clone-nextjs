@@ -1,9 +1,9 @@
 import axiosConfig from '../utils/configAxios';
 
 class ComincsController {
-  getTrendingComincs = async () => {
+  getRecentUpdate = async (page) => {
     try {
-      const res = await axiosConfig.get('/trending-comics?page=1');
+      const res = await axiosConfig.get(`/recent-update-comics?page=${page}`);
       return res.data.comics;
     } catch (e) {
       return e;
