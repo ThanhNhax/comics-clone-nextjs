@@ -60,7 +60,7 @@ const HeaderPage = () => {
           </button>
         </div>
       </div>
-      <nav className=' md:block h-10 bg-bg-grey'>
+      <nav className='hidden md:block h-10 bg-bg-grey'>
         <ul className='max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto h-full flex justify-start items-center uppercase text-sm font-medium'>
           {navbar &&
             navbar.map((nav, index) => {

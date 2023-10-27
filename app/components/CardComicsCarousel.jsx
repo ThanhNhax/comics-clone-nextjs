@@ -6,9 +6,11 @@ const CardComicsCarousel = ({ comics }) => {
   const { title, thumbnail, updated_at, last_chapter } = comics;
   return (
     <div className='card rounded-lg w-full h-full bg-base-100 shadow-xl relative overflow-hidden'>
-      <figure>
-        <img src={thumbnail} alt='comics' className='w-full' />
-      </figure>
+      <div
+        className='bg-no-repeat w-full h-full bg-cover'
+        style={{ backgroundImage: `url('${thumbnail}')` }}
+      ></div>
+
       <div
         className='px-1 md:px-2 h-14 text-white w-full absolute bottom-0'
         style={{ background: 'rgba(0,0,0,0.63)' }}
