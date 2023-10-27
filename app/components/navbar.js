@@ -1,7 +1,7 @@
 import { FaHome } from 'react-icons/fa';
 
 export const navbar = [
-  { href: '#', icon: <FaHome size={20} /> },
+  { href: '/', icon: <FaHome size={20} /> },
   { href: '#', label: 'hot' },
   { href: '#', label: 'lịch sử' },
   { href: '#', label: 'thể loại' },

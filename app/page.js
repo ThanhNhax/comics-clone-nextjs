@@ -3,7 +3,7 @@ import RecentUpdate from './components/RecentUpdate';
 
 export default function Home() {
   return (
-    <main className='container mx-auto px-6'>
+    <main className='max-w-xs md:max-w-2xl container  mx-auto  md:px-6 bg-rose-400'>
       <NominatedStory />
       <RecentUpdate />
     </main>

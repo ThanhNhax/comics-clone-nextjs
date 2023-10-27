@@ -17,7 +17,7 @@ const RecentUpdate = async () => {
         </div>
       </div>
       <div className=''>
-        <div className=' w-full grid grid-cols-2 gap-2'>
+        <div className=' w-full grid grid-cols-2 gap-2 sm:grid-cols-3'>
           {arrRecentUpdate.map((comics) => (
             <div className='' key={comics.id}>
               <CardComicsCarousel comics={comics} />

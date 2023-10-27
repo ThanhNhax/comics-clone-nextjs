@@ -14,7 +14,7 @@ const NominatedStory = async () => {
             arrRecommendComics.map((comics, index) => (
               <div
                 id={`slide${index + 1}`}
-                className='carousel-item relative basis-1/2 h-[200px]'
+                className='carousel-item relative basis-1/2 md:basis-auto h-[200px]'
                 key={index}
               >
                 <CardComicsCarousel comics={comics} />
