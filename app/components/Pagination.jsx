@@ -1,14 +1,27 @@
+'use client';
 import React from 'react';
 
-const Pagination = () => {
+const Pagination = ({ currenPage, totalPage, onChangePage }) => {
   return (
-    <div className='join'>
-      <button className='join-item btn'>1</button>
-      <button className='join-item btn'>2</button>
-      <button className='join-item btn btn-disabled'>...</button>
-      <button className='join-item btn'>99</button>
-      <button className='join-item btn'>100</button>
-    </div>
+    <section className='flex justify-center items-center py-8'>
+      <div className='join'>
+        <button
+          disabled={currenPage === 1}
+          className='join-item btn'
+          onClick={() => onChangePage('pre')}
+        >
+          «
+        </button>
+        <button className='join-item btn'>{currenPage}</button>
+        <button
+          disabled={currenPage === totalPage}
+          className='join-item btn'
+          onClick={() => onChangePage('next')}
+        >
+          »
+        </button>
+      </div>
+    </section>
   );
 };
 

@@ -4,7 +4,7 @@ class ComincsController {
   getRecentUpdate = async (page) => {
     try {
       const res = await axiosConfig.get(`/recent-update-comics?page=${page}`);
-      return res.data.comics;
+      return res.data;
     } catch (e) {
       return e;
     }

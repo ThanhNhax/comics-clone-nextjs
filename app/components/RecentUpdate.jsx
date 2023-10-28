@@ -3,9 +3,13 @@ import { BiFilterAlt } from 'react-icons/bi';
 import comincsController from '../controller/comincsController';
 import CardComicsCarousel from './CardComicsCarousel';
 import TopComics from './TopComics';
+import Pagination from './Pagination';
 
 const RecentUpdate = async () => {
-  const arrRecentUpdate = await comincsController.getRecentUpdate(1);
+  const { comics, current_page, ...rest } =
+    await comincsController.getRecentUpdate(1);
+  console.log(rest);
+
   return (
     <section>
       <div className='grid grid-cols-1 lg:grid-cols-5 gap-6 w-full'>
@@ -19,11 +23,17 @@ const RecentUpdate = async () => {
             </div>
           </div>
           <div className=' w-full grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4'>
-            {arrRecentUpdate.map((comics) => (
+            {comics.map((comics) => (
               <div className='h-[200px] md:h-56' key={comics.id}>
                 <CardComicsCarousel comics={comics} />
               </div>
             ))}
+          </div>
+          <div className=''>
+            <Pagination
+              currenPage={current_page}
+              totalPage={rest.total_pages}
+            />
           </div>
         </div>
         <div className='col-span-2'>
