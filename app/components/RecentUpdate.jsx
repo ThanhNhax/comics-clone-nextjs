@@ -2,13 +2,14 @@ import Image from 'next/image';
 import { BiFilterAlt } from 'react-icons/bi';
 import comincsController from '../controller/comincsController';
 import CardComicsCarousel from './CardComicsCarousel';
+import TopComics from './TopComics';
 
 const RecentUpdate = async () => {
   const arrRecentUpdate = await comincsController.getRecentUpdate(1);
   return (
     <section>
-      <div className='flex flex-col gap-6 w-full'>
-        <div className='w-full'>
+      <div className='grid grid-cols-1 lg:grid-cols-5 gap-6 w-full'>
+        <div className='col-span-3'>
           <div className='flex justify-between items-center'>
             <h2 className='text-xl text-color-title font-normal my-4'>
               Truyện mới cập nhật&#x3e;
@@ -25,14 +26,15 @@ const RecentUpdate = async () => {
             ))}
           </div>
         </div>
-        <div className='basis-1/3'>
+        <div className='col-span-2'>
           <Image
             alt='xem phim online'
             src='/image/blu.webp'
             width={300}
             height={600}
-            className='w-full'
+            className='w-full mb-8'
           />
+          <TopComics />
         </div>
       </div>
     </section>

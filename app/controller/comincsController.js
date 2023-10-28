@@ -17,6 +17,16 @@ class ComincsController {
       return e;
     }
   };
+  getTopComics = async (select, page, status) => {
+    try {
+      const res = await axiosConfig.get(
+        `/top/${select}?page=${page}&status=${status}`
+      );
+      return res.data.comics;
+    } catch (e) {
+      return e;
+    }
+  };
 }
 
 export default new ComincsController();
