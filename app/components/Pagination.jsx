@@ -1,25 +1,24 @@
-'use client';
-import React from 'react';
+import Link from 'next/link';
 
-const Pagination = ({ currenPage, totalPage, onChangePage }) => {
+const Pagination = ({ currenPage, totalPage }) => {
   return (
     <section className='flex justify-center items-center py-8'>
       <div className='join'>
-        <button
+        <Link
+          href={`/?page=${currenPage - 1}`}
           disabled={currenPage === 1}
           className='join-item btn'
-          onClick={() => onChangePage('pre')}
         >
           «
-        </button>
+        </Link>
         <button className='join-item btn'>{currenPage}</button>
-        <button
+        <Link
+          href={`/?page=${currenPage + 1}`}
           disabled={currenPage === totalPage}
           className='join-item btn'
-          onClick={() => onChangePage('next')}
         >
           »
-        </button>
+        </Link>
       </div>
     </section>
   );

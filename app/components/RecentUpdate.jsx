@@ -5,10 +5,9 @@ import CardComicsCarousel from './CardComicsCarousel';
 import TopComics from './TopComics';
 import Pagination from './Pagination';
 
-const RecentUpdate = async () => {
+const RecentUpdate = async ({ page }) => {
   const { comics, current_page, ...rest } =
-    await comincsController.getRecentUpdate(1);
-  console.log(rest);
+    await comincsController.getRecentUpdate(page);
 
   return (
     <section>
