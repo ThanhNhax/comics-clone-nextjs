@@ -15,8 +15,10 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
-#navTable {
-}
+
 #table :last-child {
+}
+
+#table-chapter :last-child {
   border-bottom: none;
 }

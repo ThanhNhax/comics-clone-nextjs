@@ -20,7 +20,7 @@ const HeaderPage = () => {
       <div
         className='min-w-full'
         style={{
-          backgroundImage: "url('./image/bg_header.jpg')",
+          backgroundImage: "url('/image/bg_header.jpg')",
           backgroundRepeat: 'no-repeat',
         }}
       >

@@ -27,6 +27,14 @@ class ComincsController {
       return e;
     }
   };
+  getComicsById = async (id) => {
+    try {
+      const res = await axiosConfig.get(`/comics/${id}`);
+      return res.data;
+    } catch (e) {
+      return e;
+    }
+  };
 }
 
 export default new ComincsController();

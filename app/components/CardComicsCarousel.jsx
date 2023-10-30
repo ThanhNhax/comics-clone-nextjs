@@ -1,11 +1,15 @@
 'use client';
+import Link from 'next/link';
 import React from 'react';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 
 const CardComicsCarousel = ({ comics }) => {
-  const { title, thumbnail, updated_at, last_chapter } = comics;
+  const { id, title, thumbnail, updated_at, last_chapter } = comics;
   return (
-    <div className='card rounded-lg w-full h-full bg-base-100 shadow-xl relative overflow-hidden'>
+    <Link
+      href={`/truyen-tranh/${id}`}
+      className='card rounded-lg w-full h-full bg-base-100 shadow-xl relative overflow-hidden'
+    >
       <div
         className='bg-no-repeat w-full h-full bg-cover'
         style={{ backgroundImage: `url('${thumbnail}')` }}
@@ -26,7 +30,7 @@ const CardComicsCarousel = ({ comics }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

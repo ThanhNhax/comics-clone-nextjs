@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
       >
         <HeaderPage />
-        {children}
+        <main className='max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-5 bg-white'>
+          {children}
+        </main>
         <FooterPage />
       </body>
     </html>
