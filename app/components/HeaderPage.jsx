@@ -62,26 +62,25 @@ const HeaderPage = () => {
       </div>
       <nav className='hidden md:block h-10 bg-bg-grey'>
         <ul className='max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto h-full flex justify-start items-center uppercase text-sm font-medium'>
-          {navbar &&
-            navbar.map((nav, index) => {
-              const isActive = params.includes(nav.href);
-              return (
-                <li key={index}>
-                  <Link
-                    href={nav.href}
-                    className={clsx(
-                      `  flex justify-center items-center hover:text-color-hover hover:bg-white transition px-2 h-[40px]  `,
-                      nav?.label?.includes('truyện chữ hay') &&
-                        'text-red-500 hidden lg:flex',
-                      nav.label?.includes('fanpage') && 'hidden xl:flex',
-                      isActive && 'bg-white text-color-hover'
-                    )}
-                  >
-                    {nav.icon ? nav.icon : nav.label}
-                  </Link>
-                </li>
-              );
-            })}
+          {navbar.map((nav, index) => {
+            const isActive = params === nav.href;
+            return (
+              <li key={index}>
+                <Link
+                  href={nav.href}
+                  className={clsx(
+                    `  flex justify-center items-center hover:text-color-hover hover:bg-white transition px-2 h-[40px]  `,
+                    nav?.label?.includes('truyện chữ hay') &&
+                      'text-red-500 hidden lg:flex',
+                    nav.label?.includes('fanpage') && 'hidden xl:flex',
+                    isActive && 'bg-white text-color-hover'
+                  )}
+                >
+                  {nav.icon ? nav.icon : nav.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <MenuModal isOpen={isOpenMenuModal} />

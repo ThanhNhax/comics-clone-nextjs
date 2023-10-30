@@ -4,6 +4,7 @@ import comincsController from '../controller/comincsController';
 import CardComicsCarousel from './CardComicsCarousel';
 import TopComics from './TopComics';
 import Pagination from './Pagination';
+import Link from 'next/link';
 
 const RecentUpdate = async ({ page }) => {
   const { comics, current_page, ...rest } =
@@ -18,7 +19,9 @@ const RecentUpdate = async ({ page }) => {
               Truyện mới cập nhật&#x3e;
             </h2>
             <div className='w-8 h-8 rounded-full flex justify-center items-center border-[#ff9601] border-[1px] cursor-pointer'>
-              <BiFilterAlt size='20' color='#ff9601' />
+              <Link href={'/tim-truyen'}>
+                <BiFilterAlt size='20' color='#ff9601' />
+              </Link>
             </div>
           </div>
           <div className=' w-full grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4'>
