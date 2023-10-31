@@ -5,6 +5,7 @@ import CardComicsCarousel from './CardComicsCarousel';
 import TopComics from './TopComics';
 import Pagination from './Pagination';
 import Link from 'next/link';
+import SidebarTable from './SidebarTable';
 
 const RecentUpdate = async ({ page }) => {
   const { comics, current_page, ...rest } =
@@ -39,14 +40,7 @@ const RecentUpdate = async ({ page }) => {
           </div>
         </div>
         <div className='col-span-2'>
-          <Image
-            alt='xem phim online'
-            src='/image/blu.webp'
-            width={300}
-            height={600}
-            className='w-full mb-8'
-          />
-          <TopComics />
+          <SidebarTable />
         </div>
       </div>
     </section>

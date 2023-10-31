@@ -1,7 +1,9 @@
 import BreadCrumbs from '@/app/components/BreadCrumbs';
+import SidebarTable from '@/app/components/SidebarTable';
 import TableChapters from '@/app/components/TableChapters';
 import comincsController from '@/app/controller/comincsController';
 import { Span } from 'next/dist/trace';
+import Link from 'next/link';
 import { AiOutlinePlus, AiOutlineUnorderedList } from 'react-icons/ai';
 import { BiRss, BiSolidUser } from 'react-icons/bi';
 import { BsFileEarmarkText, BsFillTagsFill } from 'react-icons/bs';
@@ -11,12 +13,13 @@ const Page = async ({ params }) => {
   const { chapters, genres, title, other_names, ...rest } =
     await comincsController.getComicsById(params.id);
 
-  console.log(rest);
+  console.log(chapters[chapters.length - 1]);
   return (
     <>
-      <section>
-        <BreadCrumbs children1={'Thể loại'} children2={title} />
-        <article>
+      <section className='grid grid-cols-1 lg:grid-cols-5 gap-6 w-full'>
+        <article className='lg:col-span-3'>
+          <BreadCrumbs children1={'Thể loại'} children2={title} />
+
           <h1 className='text-center text-2xl font-bold my-4 uppercase'>
             {title}
           </h1>
@@ -81,11 +84,24 @@ const Page = async ({ params }) => {
                   <p>{rest.total_views}</p>
                 </li>
               </ul>
-              <p>{title} Xếp hạng: racting Lượt đánh giá.</p>
-              <p>{rest.followers} Người Đã Theo Dõi</p>
-              <div className='flex justify-evenly'>
-                <button className='btn btn-warning'>Đọc từ đầu</button>
-                <button className='btn btn-warning'>Đọc mới nhất</button>
+
+              <div className='flex justify-start gap-4 mt-4'>
+                <button className='btn btn-warning'>
+                  <Link
+                    href={`/truyen-tranh/${params.id}/chapter/${
+                      chapters[chapters.length - 1].id
+                    }`}
+                  >
+                    Đọc từ đầu
+                  </Link>
+                </button>
+                <button className='btn btn-warning'>
+                  <Link
+                    href={`/truyen-tranh/${params.id}/chapter/${chapters[0].id}`}
+                  >
+                    Đọc mới nhất
+                  </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -102,10 +118,13 @@ const Page = async ({ params }) => {
               Danh sánh chươg
             </h4>
             <div className='mt-4'>
-              <TableChapters chapters={chapters} />
+              <TableChapters id={params.id} chapters={chapters} />
             </div>
           </div>
         </article>
+        <div className='lg:col-span-2'>
+          <SidebarTable />
+        </div>
       </section>
     </>
   );

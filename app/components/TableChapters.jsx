@@ -1,7 +1,8 @@
 'use client';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
-const TableChapters = ({ chapters }) => {
+const TableChapters = ({ chapters, id }) => {
   console.log(chapters.length);
   const [render, setRender] = useState(20);
   return (
@@ -11,7 +12,9 @@ const TableChapters = ({ chapters }) => {
           if (index >= render) return;
           return (
             <li className='py-2 border-b-[1px] border-dashed' key={index}>
-              {chapter.name}
+              <Link href={`/truyen-tranh/${id}/chapter/${chapters[index].id}`}>
+                {chapter.name}
+              </Link>
             </li>
           );
         })}

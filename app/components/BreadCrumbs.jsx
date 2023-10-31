@@ -3,10 +3,10 @@ import React from 'react';
 
 const BreadCrumbs = ({ children1, children2 }) => {
   return (
-    <div className='text-sm breadcrumbs'>
+    <div className='text-sm breadcrumbs text-color-title'>
       <ul>
         <li>
-          <Link href='/'>Tran chủ</Link>
+          <Link href='/'>Trang chủ</Link>
         </li>
         <li>
           <Link href={'#'}>{children1}</Link>
