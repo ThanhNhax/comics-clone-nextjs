@@ -13,7 +13,6 @@ const Page = async ({ params }) => {
   const { chapters, genres, title, other_names, ...rest } =
     await comincsController.getComicsById(params.id);
 
-  console.log(chapters[chapters.length - 1]);
   return (
     <>
       <section className='grid grid-cols-1 lg:grid-cols-5 gap-6 w-full'>

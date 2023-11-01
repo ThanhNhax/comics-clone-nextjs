@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 const TableChapters = ({ chapters, id }) => {
-  console.log(chapters.length);
   const [render, setRender] = useState(20);
   return (
     <>

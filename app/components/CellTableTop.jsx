@@ -1,9 +1,10 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 import React from 'react';
 import { AiFillEye } from 'react-icons/ai';
 
 const CellTableTop = ({ comics, index }) => {
-  const { title, thumbnail, total_views, last_chapter } = comics;
+  const { id, title, thumbnail, total_views, last_chapter } = comics;
   return (
     <div className='flex flex-col border-b-[1px] '>
       <div className='flex h-[72px] justify-between items-center py-3 gap-2'>
@@ -16,10 +17,12 @@ const CellTableTop = ({ comics, index }) => {
         >
           0{index + 1}
         </p>
-        <div
-          className='bg-no-repeat bg-cover w-[55px] h-full'
-          style={{ backgroundImage: `url("${thumbnail}")` }}
-        />
+        <Link href={`/truyen-tranh/${id}`} className='w-[55px] h-full'>
+          <div
+            className='bg-no-repeat bg-cover w-full h-full'
+            style={{ backgroundImage: `url("${thumbnail}")` }}
+          />
+        </Link>
         <div className='w-[196px] md:basis-2/3 flex flex-col'>
           <h3 className='text-sm truncate'>{title}</h3>
           <div className='flex justify-between items-center'>
