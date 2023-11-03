@@ -19,7 +19,7 @@ export const generateMetadata = async ({ params, searchParams }, parent) => {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: product.title,
+    title: `${product.title}-${product.chapters[0].name}-NetTruyen`,
   };
 };
 

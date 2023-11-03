@@ -4,7 +4,9 @@ import HeaderPage from './components/HeaderPage';
 import FooterPage from './components/FooterPage';
 
 const inter = Inter({ subsets: ['latin'] });
-
+export const metadata = {
+  title: 'NetTruyen - Đọc truyện tranh online - Truyện gì cũng có',
+};
 export default function RootLayout({ children }) {
   return (
     <html lang='es'>
