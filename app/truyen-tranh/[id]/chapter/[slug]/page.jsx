@@ -41,7 +41,7 @@ const Page = async ({ params }) => {
           </p>
         </div>
         <p className='text-red-500 mt-2'>
-          Vui lòng bấm "BÁO LỖI" nếu không xem được truyện
+          Vui lòng bấm &quot;BÁO LỖI&quot; nếu không xem được truyện
         </p>
         <div className='flex justify-center gap-4 mt-4'>
           <button className='btn-sm rounded-md  btn-primary'>Server 1</button>
