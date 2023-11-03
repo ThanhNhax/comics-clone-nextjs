@@ -35,7 +35,10 @@ const Page = async ({ params }) => {
             <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75'></span>
             <span class='relative inline-flex rounded-full h-3 w-3 bg-red-500'></span>
           </span>
-          <p>Nếu không xem được truyện vui lòng đổi "SERVER ẢNH" bên dưới</p>
+          <p>
+            Nếu không xem được truyện vui lòng đổi &quot;SERVER ẢNH&quot; bên
+            dưới
+          </p>
         </div>
         <p className='text-red-500 mt-2'>
           Vui lòng bấm "BÁO LỖI" nếu không xem được truyện
