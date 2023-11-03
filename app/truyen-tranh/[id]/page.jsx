@@ -9,6 +9,20 @@ import { BiRss, BiSolidUser } from 'react-icons/bi';
 import { BsFileEarmarkText, BsFillTagsFill } from 'react-icons/bs';
 import { FaRegEye } from 'react-icons/fa';
 
+export const generateMetadata = async ({ params, searchParams }, parent) => {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const product = await comincsController.getComicsById(params.id);
+
+  // optionally access and extend (rather than replace) parent metadata
+
+  return {
+    title: product.title,
+  };
+};
+
 const Page = async ({ params }) => {
   const { chapters, genres, title, other_names, ...rest } =
     await comincsController.getComicsById(params.id);
