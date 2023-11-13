@@ -6,6 +6,19 @@ import Link from 'next/link';
 import React from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BsListColumnsReverse } from 'react-icons/bs';
+export const generateMetadata = async ({ params, searchParams }, parent) => {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const product = await comincsController.getComicsById(params.id);
+
+  // optionally access and extend (rather than replace) parent metadata
+
+  return {
+    title: `${product.title}-${product.chapters[0].name}-NetTruyen`,
+  };
+};
 
 const Page = async ({ params }) => {
   const imagesChapter = await comincsController.getComicsChaptersById(
