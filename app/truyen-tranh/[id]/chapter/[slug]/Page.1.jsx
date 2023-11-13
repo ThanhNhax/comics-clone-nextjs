@@ -7,16 +7,12 @@ import React from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BsListColumnsReverse } from 'react-icons/bs';
 
-const Page = async ({ params }) => {
+export const Page = async ({ params }) => {
   const imagesChapter = await comincsController.getComicsChaptersById(
     params.id,
     params.slug
   );
   console.log(imagesChapter);
-  const currentChapter = {
-    id: params.slug,
-    name: imagesChapter.chapter_name,
-  };
   return (
     <>
       <BreadCrumbs
@@ -55,14 +51,15 @@ const Page = async ({ params }) => {
           <button className='btn-sm rounded-md btn-secondary'>Server 2</button>
         </div>
         <button className='btn-sm rounded-md btn-warning mt-4'>Báo lỗi</button>
-        <div className='mt-4 flex justify-center items-center gap-2'>
+        <div className='mt-4'>
           <Link href={'/'}>
-            <AiOutlineHome size={24} color='red' />
+            <AiOutlineHome />
           </Link>
           <Link href={'#'}>
-            <BsListColumnsReverse size={24} color='red' />
+            <BsListColumnsReverse />
           </Link>
-          <PaginationChapter currentChapter={currentChapter} />
+          <PaginationChapter />
+          <button></button>
         </div>
       </div>
       <article className='flex flex-col gap-4'>
@@ -81,5 +78,3 @@ const Page = async ({ params }) => {
     </>
   );
 };
-
-export default Page;
